@@ -27,30 +27,10 @@ public partial class MainView : UserControl
         ViewModel = new MainViewModel();
         this.DataContext = ViewModel;
 
-        this.Cursor = new Cursor(StandardCursorType.None);
-
-        this.PointerPressed += MainView_PointerPressed;
-
         //ChangeTextButton.Click += Button_Click;
         ConnectButton.Click += ConnectButton_Click;
         SetAllLightsButton.Click += SetAllLightsButton_Click;
         SetSceneButton.Click += SetSceneButton_Click;
-    }
-
-    private void MainView_PointerPressed(object? sender, PointerPressedEventArgs e)
-    {
-        // Check if the input device is touch
-
-        if (e.Pointer.Type == PointerType.Touch)
-        {
-            // Hide cursor when touch is detected
-            this.Cursor = new Cursor(StandardCursorType.None);
-        }
-        else if (e.Pointer.Type == PointerType.Mouse)
-        {
-            // Optionally show the cursor when mouse is detected
-            this.Cursor = new Cursor(StandardCursorType.Arrow);
-        }
     }
 
     private async void RegisterAppButton_Click(object sender, RoutedEventArgs e)
