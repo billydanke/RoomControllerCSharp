@@ -22,6 +22,8 @@ namespace RoomControllerCSharp.ViewModels
             {
                 TriggerPane();
             });
+
+            SelectedListItem = Items.FirstOrDefault();
         }
 
         private bool _isPaneOpen = false;

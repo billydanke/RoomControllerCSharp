@@ -9,43 +9,53 @@
         x:DataType="vm:MainWindowViewModel"
         Icon="/Assets/avalonia-logo.ico"
         Title="RoomControllerCSharp"
-        Width="800" Height="480">
+        Width="800" Height="480"
+        Background="#101010">
         <!--<views:MainView />-->
 
   <Design.DataContext>
     <vm:MainWindowViewModel />
   </Design.DataContext>
 
-  <SplitView IsPaneOpen="{Binding IsPaneOpen}" OpenPaneLength="250" DisplayMode="CompactInline" CompactPaneLength="60" Background="#1e1e1e" PaneBackground="#1e1e1e">
-    <SplitView.Pane>
-      <StackPanel Spacing="10" Margin="5">
-        <Button Width="45" Margin="2.5" Command="{Binding TriggerPanelCommand}">
-          <PathIcon Data="{StaticResource LineHorizontal3Regular}"></PathIcon>
-        </Button>
-        <ListBox ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedListItem}">
-          <!--
+  <Grid RowDefinitions="30,*">
+
+    <Grid ColumnDefinitions="*,*,*" VerticalAlignment="Center" >
+      <TextBlock Grid.Column="0" HorizontalAlignment="Left" Margin="30 0">Monday</TextBlock>
+      <TextBlock Grid.Column="1" HorizontalAlignment="Center">1:03am</TextBlock>
+      <TextBlock Grid.Column="2" HorizontalAlignment="Right" Margin="30 0">Sunny</TextBlock>
+    </Grid>
+    
+    <SplitView Grid.Row="1" IsPaneOpen="{Binding IsPaneOpen}" OpenPaneLength="250" DisplayMode="CompactInline" CompactPaneLength="60" PaneBackground="#001e1e1e">
+      <SplitView.Pane>
+        <StackPanel Spacing="10" Margin="5">
+          <Button Width="45" Margin="2.5" Command="{Binding TriggerPanelCommand}">
+            <PathIcon Data="{StaticResource LineHorizontal3Regular}"></PathIcon>
+          </Button>
+          <ListBox ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedListItem}">
+            <!--
           <ListBoxItem>Home</ListBoxItem>
           <ListBoxItem>Main Lights</ListBoxItem>
           <ListBoxItem>Shelf Lights</ListBoxItem>
           <ListBoxItem>Accessories</ListBoxItem>
           <ListBoxItem>Alarms</ListBoxItem>
           <ListBoxItem>Settings</ListBoxItem>-->
-          <ListBox.ItemTemplate>
-            <DataTemplate DataType="{x:Type vm:ListItemTemplate}">
-              <StackPanel Spacing="20" Orientation="Horizontal" VerticalAlignment="Center">
-                <PathIcon Height="30" Margin="3 0 0 0" Data="{Binding ListItemIcon}" VerticalAlignment="Center"/>
-                <TextBlock Text="{Binding Label}" VerticalAlignment="Center"/>
-              </StackPanel>
-            </DataTemplate>
-          </ListBox.ItemTemplate>
-        </ListBox>
-      </StackPanel>
-    </SplitView.Pane>
-    <SplitView.Content>
-      <Border CornerRadius="20" Background="#2d2d2d">
-        <TransitioningContentControl Content="{Binding CurrentPage}"/>
-      </Border>
-    </SplitView.Content>
-  </SplitView>
+            <ListBox.ItemTemplate>
+              <DataTemplate DataType="{x:Type vm:ListItemTemplate}">
+                <StackPanel Spacing="20" Orientation="Horizontal" VerticalAlignment="Center">
+                  <PathIcon Height="30" Margin="3 0 0 0" Data="{Binding ListItemIcon}" VerticalAlignment="Center"/>
+                  <TextBlock Text="{Binding Label}" Margin="0 5 0 0" VerticalAlignment="Center"/>
+                </StackPanel>
+              </DataTemplate>
+            </ListBox.ItemTemplate>
+          </ListBox>
+        </StackPanel>
+      </SplitView.Pane>
+      <SplitView.Content>
+        <Border CornerRadius="20" Background="#2d2d2d">
+          <TransitioningContentControl Content="{Binding CurrentPage}"/>
+        </Border>
+      </SplitView.Content>
+    </SplitView>
+  </Grid>
   
 </Window>
