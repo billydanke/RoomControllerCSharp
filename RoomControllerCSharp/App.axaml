@@ -1,10 +1,25 @@
 <Application xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:views="clr-namespace:RoomControllerCSharp.Views"
+             xmlns:vm="clr-namespace:RoomControllerCSharp.ViewModels"
              x:Class="RoomControllerCSharp.App"
-             RequestedThemeVariant="Default">
+             RequestedThemeVariant="Dark">
              <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
 
+  <Application.DataTemplates>
+    <DataTemplate DataType="{x:Type vm:HomePageViewModel}">
+      <views:HomePageView />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:MainLightsViewModel}">
+      <views:MainLightsView />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:ShelfLightsViewModel}">
+      <views:ShelfLightsView />
+    </DataTemplate>
+  </Application.DataTemplates>
+  
     <Application.Styles>
-        <FluentTheme />
+      <FluentTheme />
+      <StyleInclude Source="/Assets/Icons.axaml"></StyleInclude>
     </Application.Styles>
 </Application>

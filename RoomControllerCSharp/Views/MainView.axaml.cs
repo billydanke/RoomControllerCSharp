@@ -19,13 +19,13 @@ public partial class MainView : UserControl
 
     public static ILocalHueClient HueClient = null;
 
-    public MainViewModel ViewModel;
+    //public MainViewModel ViewModel;
 
     public MainView()
     {
         InitializeComponent();
-        ViewModel = new MainViewModel();
-        this.DataContext = ViewModel;
+        //ViewModel = new MainViewModel();
+        //this.DataContext = ViewModel;
 
         //ChangeTextButton.Click += Button_Click;
         ConnectButton.Click += ConnectButton_Click;

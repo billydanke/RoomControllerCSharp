@@ -4,9 +4,48 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:views="clr-namespace:RoomControllerCSharp.Views"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="480"
         x:Class="RoomControllerCSharp.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
         Icon="/Assets/avalonia-logo.ico"
-        Title="RoomControllerCSharp">
-        <views:MainView />
+        Title="RoomControllerCSharp"
+        Width="800" Height="480">
+        <!--<views:MainView />-->
+
+  <Design.DataContext>
+    <vm:MainWindowViewModel />
+  </Design.DataContext>
+
+  <SplitView IsPaneOpen="{Binding IsPaneOpen}" OpenPaneLength="250" DisplayMode="CompactInline" CompactPaneLength="60" Background="#1e1e1e" PaneBackground="#1e1e1e">
+    <SplitView.Pane>
+      <StackPanel Spacing="10" Margin="5">
+        <Button Width="45" Margin="2.5" Command="{Binding TriggerPanelCommand}">
+          <PathIcon Data="{StaticResource LineHorizontal3Regular}"></PathIcon>
+        </Button>
+        <ListBox ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedListItem}">
+          <!--
+          <ListBoxItem>Home</ListBoxItem>
+          <ListBoxItem>Main Lights</ListBoxItem>
+          <ListBoxItem>Shelf Lights</ListBoxItem>
+          <ListBoxItem>Accessories</ListBoxItem>
+          <ListBoxItem>Alarms</ListBoxItem>
+          <ListBoxItem>Settings</ListBoxItem>-->
+          <ListBox.ItemTemplate>
+            <DataTemplate DataType="{x:Type vm:ListItemTemplate}">
+              <StackPanel Spacing="20" Orientation="Horizontal" VerticalAlignment="Center">
+                <PathIcon Height="30" Margin="3 0 0 0" Data="{Binding ListItemIcon}" VerticalAlignment="Center"/>
+                <TextBlock Text="{Binding Label}" VerticalAlignment="Center"/>
+              </StackPanel>
+            </DataTemplate>
+          </ListBox.ItemTemplate>
+        </ListBox>
+      </StackPanel>
+    </SplitView.Pane>
+    <SplitView.Content>
+      <Border CornerRadius="20" Background="#2d2d2d">
+        <TransitioningContentControl Content="{Binding CurrentPage}"/>
+      </Border>
+    </SplitView.Content>
+  </SplitView>
+  
 </Window>

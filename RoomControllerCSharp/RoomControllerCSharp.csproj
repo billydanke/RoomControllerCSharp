@@ -10,6 +10,11 @@
     <AvaloniaResource Include="Assets\**" />
   </ItemGroup>
 
+  
+  <ItemGroup>
+    <AvaloniaResource Remove="Assets\Icons.axaml" />
+  </ItemGroup>
+
   <ItemGroup>
     <PackageReference Include="Avalonia" Version="$(AvaloniaVersion)" />
     <PackageReference Include="Avalonia.Themes.Fluent" Version="$(AvaloniaVersion)" />
@@ -19,5 +24,17 @@
     <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="$(AvaloniaVersion)" />
     <PackageReference Include="Q42.HueApi" Version="3.23.1" />
     <PackageReference Include="Q42.HueApi.ColorConverters" Version="3.23.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AvaloniaXaml Update="Assets\Icons.axaml">
+      <SubType>Designer</SubType>
+    </AvaloniaXaml>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\HomePageView.axaml.cs">
+      <DependentUpon>HomePageView.axaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 </Project>
