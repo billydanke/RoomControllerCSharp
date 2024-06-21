@@ -5,7 +5,7 @@
              xmlns:vm="using:RoomControllerCSharp.ViewModels"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="RoomControllerCSharp.Views.SettingsPageView"
-             x:DataType="vm:AlarmsPageViewModel">
+             x:DataType="vm:SettingsPageViewModel">
 
   <Grid Margin="10">
     <TextBlock Margin="20 30 0 0" FontWeight="Bold" FontSize="20">Settings</TextBlock>
