@@ -10,7 +10,6 @@
         Icon="/Assets/avalonia-logo.ico"
         Title="RoomControllerCSharp"
         Width="800" Height="480"
-        WindowState="FullScreen"
         Background="#101010">
         <!--<views:MainView />-->
 

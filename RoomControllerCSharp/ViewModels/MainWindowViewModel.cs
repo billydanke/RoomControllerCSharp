@@ -59,6 +59,9 @@ namespace RoomControllerCSharp.ViewModels
             new ListItemTemplate(typeof(HomePageViewModel), "Home", "HomeRegular"),
             new ListItemTemplate(typeof(MainLightsViewModel), "Main Lights", "LightbulbRegular"),
             new ListItemTemplate(typeof(ShelfLightsViewModel), "Shelf Lights", "AppFolderRegular"),
+            new ListItemTemplate(typeof(AccessoriesViewModel), "Accessories", "OptionsRegular"),
+            new ListItemTemplate(typeof(AlarmsPageViewModel), "Alarms", "ClockAlarmRegular"),
+            new ListItemTemplate(typeof(SettingsPageViewModel), "Settings", "SettingsRegular"),
         };
 
         private void TriggerPane()
