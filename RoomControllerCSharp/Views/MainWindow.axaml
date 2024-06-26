@@ -21,7 +21,7 @@
 
     <Grid ColumnDefinitions="*,*,*" VerticalAlignment="Center" >
       <TextBlock Grid.Column="0" HorizontalAlignment="Left" Margin="30 0">No Alarms</TextBlock>
-      <TextBlock Grid.Column="1" HorizontalAlignment="Center">Mon 1:03am</TextBlock>
+      <TextBlock Grid.Column="1" HorizontalAlignment="Center" Text="{Binding ClockBarTime}"></TextBlock>
       <TextBlock Grid.Column="2" HorizontalAlignment="Right" Margin="30 0">Sunny</TextBlock>
     </Grid>
     

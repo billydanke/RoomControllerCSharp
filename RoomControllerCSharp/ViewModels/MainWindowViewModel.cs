@@ -2,6 +2,7 @@
 using Avalonia.Controls;
 using Avalonia.Media;
 using ReactiveUI;
+using RoomControllerCSharp.Classes;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -25,6 +26,18 @@ namespace RoomControllerCSharp.ViewModels
 
             SelectedListItem = Items.FirstOrDefault();
         }
+
+        #region Clock Bar Stuff
+
+        private string _clockBarTime = TimeManager.GetDayAndTime();
+
+        public string ClockBarTime
+        {
+            get => _clockBarTime;
+            set => this.RaiseAndSetIfChanged(ref _clockBarTime, value);
+        }
+
+        #endregion
 
         private bool _isPaneOpen = false;
         public bool IsPaneOpen
