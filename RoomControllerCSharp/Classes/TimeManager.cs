@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RoomControllerCSharp.Classes
 {
-    public class TimeManager
+    public static class TimeManager
     {
         public static string GetFormattedTime()
         {
