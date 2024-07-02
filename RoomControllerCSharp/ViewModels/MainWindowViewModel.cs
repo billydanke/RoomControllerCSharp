@@ -6,8 +6,10 @@ using RoomControllerCSharp.Classes;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
@@ -25,16 +27,33 @@ namespace RoomControllerCSharp.ViewModels
             });
 
             SelectedListItem = Items.FirstOrDefault();
+
+            UpdateClockInBackground(new TimeSpan(0,0,1));
         }
 
         #region Clock Bar Stuff
 
         private string _clockBarTime = TimeManager.GetDayAndTime();
-
         public string ClockBarTime
         {
             get => _clockBarTime;
             set => this.RaiseAndSetIfChanged(ref _clockBarTime, value);
+        }
+
+        public async Task UpdateClockInBackground(TimeSpan updateTime)
+        {
+            var periodicTimer = new PeriodicTimer(updateTime);
+            while(await periodicTimer.WaitForNextTickAsync())
+            {
+                // Check if the clock needs to be updated
+                string time = TimeManager.GetDayAndTime();
+
+                if (ClockBarTime != time)
+                {
+                    // Update the visual time.
+                    ClockBarTime = time;
+                }
+            }
         }
 
         #endregion
