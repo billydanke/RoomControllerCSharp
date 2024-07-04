@@ -10,7 +10,7 @@ namespace RoomControllerCSharp.Classes
     {
         public static double Longitude = 37.70282245696308; // These are default values between Wichita and Andover because I don't actually want to implement location services.
         public static double Latitude = -97.16302799543435;
-        public static string City = "Wichita";
+        public static string City = "Andover";
         public static string County = "Sedgewick";
         public static string State = "Kansas";
         public static string Country = "United States";
